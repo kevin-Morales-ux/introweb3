@@ -1,0 +1,165 @@
+.estilo_titulo{
+     color:rgb(255, 80, 80);
+     font-family: 'Courier New', Courier, monospace;
+     font-style: italic;
+     font-weight: bold;
+}
+.estilo_parrafo{
+    color: rgb(255, 255, 255);
+    font-style: italic;
+}
+/* ==========================
+   ESTILOS GENERALES
+========================== */
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+header {
+    background: linear-gradient(to right, #1c1c1c, #444);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* ==========================
+   NAV
+========================== */
+
+nav {
+    background-color: #d62828;
+    padding: 15px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: yellow;
+}
+
+/* ==========================
+   MAIN
+========================== */
+
+main {
+    width: 85%;
+    margin: 30px auto;
+}
+
+/* ==========================
+   SECTION
+========================== */
+
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-left: 8px solid #d62828;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.2);
+}
+
+section h2 {
+    margin-top: 0;
+    color: #d62828;
+}
+
+/* ==========================
+   ARTICLE
+========================== */
+
+article {
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+article h3 {
+    margin-top: 0;
+    color: #222;
+}
+
+article p {
+    text-align: justify;
+}
+
+/* ==========================
+   ASIDE
+========================== */
+
+aside {
+    background-color: #fff8dc;
+    border: 2px dashed #d62828;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+aside h2 {
+    margin-top: 0;
+    color: #d62828;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* ==========================
+   EFECTOS
+========================== */
+
+section:hover {
+    transform: scale(1.01);
+    transition: 0.3s;
+}
+
+article:hover {
+    background-color: #f0f0f0;
+    transition: 0.3s;
+}
