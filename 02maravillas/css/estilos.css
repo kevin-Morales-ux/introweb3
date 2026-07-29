@@ -1,0 +1,245 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #1a1a1a;
+}
+
+header {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/coliseo/coliseo.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 2.5rem 1rem;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.3rem;
+}
+
+/* Menú superior */
+.menu-superior {
+    background-color: #2c3e50;
+}
+
+.menu-superior ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.menu-superior ul li a {
+    color: #fff;
+    display: block;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.menu-superior ul li a:hover {
+    background-color: #1abc9c;
+}
+
+/* Contenedor principal con fondo dinámico ajustable */
+.contenedor-principal {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    display: flex;
+    gap: 20px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: background-image 0.5s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* Menú Lateral (1 al 7) */
+.menu-lateral {
+    width: 260px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: fit-content;
+}
+
+.menu-lateral h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #1abc9c;
+    padding-bottom: 0.3rem;
+}
+
+.btn-maravilla {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    transition: all 0.3s;
+}
+
+.btn-maravilla:hover, .btn-maravilla.activo {
+    background-color: #1abc9c;
+    color: white;
+    border-color: #1abc9c;
+}
+
+/* Panel Dinámico */
+.panel-dinamico {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.panel-dinamico h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+/* Botones de pestañas ajustados para múltiples opciones */
+.pestanas {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-pestana {
+    background: #e9ecef;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #495057;
+    transition: background 0.3s;
+}
+
+.btn-pestana:hover, .btn-pestana.activa {
+    background-color: #2c3e50;
+    color: white;
+}
+
+/* Contenido de las pestañas */
+.tab-content {
+    display: none;
+}
+
+.tab-content.activa {
+    display: block;
+}
+
+/* Galería interna */
+.contenedor-galeria {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.img-dinamica {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.controles-galeria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.btn-control {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-control:hover {
+    background-color: #16a085;
+}
+
+#contador-img {
+    font-weight: bold;
+    color: #333;
+}
+
+.tab-content h3 {
+    color: #34495e;
+    margin-bottom: 0.5rem;
+}
+
+.tab-content p {
+    color: #444;
+    font-size: 1.05rem;
+}
+
+/* Botón estilizado para Google Maps */
+.btn-maps {
+    display: inline-block;
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-maps:hover {
+    background-color: #c0392b;
+}
+
+/* Pie de página */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin: 0.2rem 0;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        flex-direction: column;
+    }
+    .menu-lateral {
+        width: 100%;
+    }
+}

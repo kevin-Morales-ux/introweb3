@@ -8,158 +8,187 @@
     color: rgb(255, 255, 255);
     font-style: italic;
 }
-/* ==========================
-   ESTILOS GENERALES
-========================== */
 
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f2f2f2;
-    color: #333;
+
+
+/* --- Variables y Reset Global --- */
+:root {
+    --primary-color: #0176bf; /* Rojo estilo cine/streaming */
+    --bg-dark: #141414;
+    --bg-light: #f4f4f9;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-light: #666666;
+    --accent: #221f1f;
 }
 
-/* ==========================
-   HEADER
-========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Imagen de fondo estática que no se mueve con el scroll */
+    background: url('../img/fondo2.png') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Estilo de clase para bordes redondeados en imágenes --- */
+.img-redonda {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Encabezado (Header) con Banner --- */
 header {
-    background: linear-gradient(to right, #1c1c1c, #444);
-    color: white;
+    /* Banner integrado en el fondo del header */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/baner1.jpg') no-repeat center center/cover;
+    color: #ffffff;
     text-align: center;
-    padding: 40px 20px;
+    padding: 4rem 2rem;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 40px;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 header p {
-    font-size: 18px;
+    font-size: 1.1rem;
+    color: #dddddd;
 }
 
-/* ==========================
-   NAV
-========================== */
-
+/* --- Menú de Navegación (Nav) --- */
 nav {
-    background-color: #d62828;
-    padding: 15px;
+    background-color: var(--accent);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 nav ul {
-    margin: 0;
-    padding: 0;
     list-style: none;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-nav ul li {
-    display: inline-block;
-    margin: 0 20px;
-}
-
-nav a {
-    color: white;
+nav ul li a {
+    display: block;
+    color: #ffffff;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
 }
 
-nav a:hover {
-    color: yellow;
+nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
 }
 
-/* ==========================
-   MAIN
-========================== */
-
+/* --- Contenido Principal (Main) --- */
 main {
-    width: 85%;
-    margin: 30px auto;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
 }
-
-/* ==========================
-   SECTION
-========================== */
 
 section {
-    background-color: white;
-    padding: 25px;
-    margin-bottom: 25px;
-    border-left: 8px solid #d62828;
-    border-radius: 8px;
-    box-shadow: 0 3px 8px rgba(0,0,0,.2);
+    margin-bottom: 2.5rem;
 }
 
 section h2 {
-    margin-top: 0;
-    color: #d62828;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 0.3rem;
 }
 
-/* ==========================
-   ARTICLE
-========================== */
-
+/* --- Artículos (Tarjetas de Películas) --- */
 article {
-    background-color: #fafafa;
-    padding: 20px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-}
-
-article h3 {
-    margin-top: 0;
-    color: #222;
-}
-
-article p {
-    text-align: justify;
-}
-
-/* ==========================
-   ASIDE
-========================== */
-
-aside {
-    background-color: #fff8dc;
-    border: 2px dashed #d62828;
-    padding: 20px;
-    margin-bottom: 30px;
+    background-color: var(--card-bg);
+    padding: 1.5rem;
     border-radius: 8px;
-}
-
-aside h2 {
-    margin-top: 0;
-    color: #d62828;
-}
-
-/* ==========================
-   FOOTER
-========================== */
-
-footer {
-    background-color: #1c1c1c;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-footer p {
-    margin: 5px;
-}
-
-/* ==========================
-   EFECTOS
-========================== */
-
-section:hover {
-    transform: scale(1.01);
-    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 article:hover {
-    background-color: #f0f0f0;
-    transition: 0.3s;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+article h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+article p {
+    color: var(--text-light);
+}
+
+/* --- Contenido Adicional (Aside) --- */
+aside {
+    background-color: #2b2b2b;
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 3rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+aside h2 {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    border-bottom: none;
+}
+
+aside p {
+    color: #cccccc;
+}
+
+/* --- Pie de Página (Footer) --- */
+footer {
+    background-color: var(--accent);
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin-bottom: 0.3rem;
+    color: #aaaaaa;
+}
+
+/* --- Diseño Responsivo (Pantallas Pequeñas) --- */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul li a {
+        padding: 0.8rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
 }

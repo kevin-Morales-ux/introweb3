@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las 7 Maravillas del Mundo Moderno</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Las 7 Maravillas del Mundo Moderno</h1>
+        <p>Explora el patrimonio de la humanidad de forma interactiva.</p>
+    </header>
+
+    <!-- Menú superior -->
+    <nav class="menu-superior">
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#maravillas-seccion">Maravillas Dinámicas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenedor principal con fondo dinámico -->
+    <main class="contenedor-principal" id="maravillas-seccion">
+
+        <!-- Menú Lateral (1 al 7) -->
+        <aside class="menu-lateral">
+            <h3>Maravillas</h3>
+            <button class="btn-maravilla activo" onclick="cambiarMaravilla(0)">1. Chichén Itzá</button>
+            <button class="btn-maravilla" onclick="cambiarMaravilla(1)">2. Coliseo de Roma</button>
+            <button class="btn-maravilla" onclick="cambiarMaravilla(2)">3. Cristo Redentor</button>
+            <button class="btn-maravilla" onclick="cambiarMaravilla(3)">4. Gran Muralla</button>
+            <button class="btn-maravilla" onclick="cambiarMaravilla(4)">5. Machu Picchu</button>
+            <button class="btn-maravilla" onclick="cambiarMaravilla(5)">6. Petra</button>
+            <button class="btn-maravilla" onclick="cambiarMaravilla(6)">7. Taj Mahal</button>
+        </aside>
+
+        <!-- Panel de Contenido Dinámico con más pestañas -->
+        <section class="panel-dinamico">
+            <h2 id="titulo-maravilla">1. Chichén Itzá (Yucatán, México)</h2>
+            
+            <!-- Botones de Pestañas ampliados -->
+            <div class="pestanas">
+                <button class="btn-pestana activa" onclick="mostrarPestaña('imagen')">A. Imagen</button>
+                <button class="btn-pestana" onclick="mostrarPestaña('historia')">B. Historia</button>
+                <button class="btn-pestana" onclick="mostrarPestaña('ubicacion')">C. Ubicación</button>
+                <button class="btn-pestana" onclick="mostrarPestaña('visitantes')">D. Visitantes</button>
+                <button class="btn-pestana" onclick="mostrarPestaña('comer')">E. Comer</button>
+                <button class="btn-pestana" onclick="mostrarPestaña('hospedaje')">F. Hospedaje</button>
+                <button class="btn-pestana" onclick="mostrarPestaña('dato')">G. Dato Extra</button>
+            </div>
+
+            <!-- Contenido de las Pestañas -->
+            <div class="contenido-pestanas">
+                
+                <!-- Pestaña A: Galería de Imágenes -->
+                <div id="tab-imagen" class="tab-content activa">
+                    <div class="contenedor-galeria">
+                        <img id="img-maravilla" src="" alt="Maravilla" class="img-dinamica">
+                        <div class="controles-galeria">
+                            <button class="btn-control" onclick="cambiarImagenGaleria(-1)">&#10094; Anterior</button>
+                            <span id="contador-img">1 / 4</span>
+                            <button class="btn-control" onclick="cambiarImagenGaleria(1)">Siguiente &#10095;</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña B: Historia Extendida -->
+                <div id="tab-historia" class="tab-content">
+                    <h3>Historia Detallada</h3>
+                    <p id="txt-historia"></p>
+                </div>
+
+                <!-- Pestaña C: Ubicación y Google Maps -->
+                <div id="tab-ubicacion" class="tab-content">
+                    <h3>Ubicación y Cómo Llegar</h3>
+                    <p id="txt-ubicacion"></p>
+                    <p style="margin-top: 15px;">
+                        <a id="link-maps" href="#" target="_blank" class="btn-maps">&#128205; Ver ubicación exacta en Google Maps</a>
+                    </p>
+                </div>
+
+                <!-- Pestaña D: Número de Visitantes -->
+                <div id="tab-visitantes" class="tab-content">
+                    <h3>Afluencia Turística</h3>
+                    <p id="txt-visitantes"></p>
+                </div>
+
+                <!-- Pestaña E: Dónde Comer -->
+                <div id="tab-comer" class="tab-content">
+                    <h3>Gastronomía y Recomendaciones para Comer</h3>
+                    <p id="txt-comer"></p>
+                </div>
+
+                <!-- Pestaña F: Dónde Hospedarse -->
+                <div id="tab-hospedaje" class="tab-content">
+                    <h3>Opciones de Hospedaje</h3>
+                    <p id="txt-hospedaje"></p>
+                </div>
+
+                <!-- Pestaña G: Dato Extra -->
+                <div id="tab-dato" class="tab-content">
+                    <h3>Datos Curiosos</h3>
+                    <p id="txt-dato"></p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer id="contacto">
+        <p>&copy; 2026 - Página creada por Kevin Morales</p>
+        <p>Correo: km09israel@gmail.com</p>
+    </footer>
+
+    <!-- Script con la información ampliada -->
+    <script>
+        const maravillas = [
+            {
+                titulo: "1. Chichén Itzá (Yucatán, México)",
+                imagenes: [
+                    "img/mexico/mexico.avif",
+                    "img/mexico/mexico2.jfif",
+                    "img/mexico/mexico3.jpg",
+                    "img/mexico/mexico4.jpg"
+                ],
+                historia: "Chichén Itzá fue una de las ciudades más poderosas de la península de Yucatán y un importante centro político y religioso de la civilización maya. Su apogeo ocurrió durante el periodo clásico tardío y el postclásico. La majestuosa Pirámide de Kukulcán (El Castillo) funciona como un calendario gigante esculpido en piedra que refleja los profundos conocimientos astronómicos de los mayas.",
+                ubicacion: "Yucatán, México. Zona arqueológica situada en el municipio de Tinum, en la carretera principal hacia Cancún.",
+                maps: "https://maps.google.com/?q=Chichen+Itza+Yucatan+Mexico",
+                visitantes: "Recibe aproximadamente de 2.5 a 3 millones de visitantes al año, convirtiéndose en uno de los sitios arqueológicos más concurridos de América Latina.",
+                comer: "Cerca de la zona arqueológica puedes degustar platillos típicos yucatecos como la cochinita pibil, la sopa de lima y los panuchos en restaurantes locales tradicionales de Pisté o dentro de las haciendas turísticas cercanas.",
+                hospedaje: "Existen excelentes opciones de hospedaje que van desde hoteles boutique y haciendas coloniales restauradas en el pueblo de Pisté, hasta complejos hoteleros de lujo en Mérida o Valladolid.",
+                dato: "Durante los equinoccios de primavera y otoño, el sol proyecta sombras triangulares sobre la balaustrada de la pirámide que simulan el cuerpo de una serpiente emplumada descendiendo hacia la tierra."
+            },
+            {
+                titulo: "2. Coliseo de Roma (Italia)",
+                imagenes: [
+                    "img/coliseo/coliseo.jpg",
+                    "img/coliseo/coliseo2.jfif",
+                    "img/coliseo/coliseo3.webp",
+                    "img/coliseo/coliseo4.jfif"
+                ],
+                historia: "Inaugurado en el año 80 d.C. bajo el mandato del emperador Tito, el Coliseo (conocido originalmente como Anfiteatro Flavio) es el mayor anfiteatro jamás construido por el Imperio romano. Fue el escenario principal para combates de gladiadores, cacerías de animales exóticos, ejecuciones y representaciones de batallas navales simuladas.",
+                ubicacion: "Piazza del Colosseo, 1, 00184 Roma RM, Italia.",
+                maps: "https://maps.google.com/?q=Colosseum+Rome+Italy",
+                visitantes: "Es el monumento más visitado de Italia, albergando a más de 7 millones de turistas nacionales y extranjeros cada año.",
+                comer: "En los alrededores del barrio de Monti y cerca del Coliseo podrás disfrutar de la auténtica gastronomía romana, destacando platos como la pasta alla carbonara, cacio e pepe y los tradicionales maritozzi.",
+                hospedaje: "La zona del centro histórico de Roma, los alrededores de la estación Termini y el pintoresco barrio de Monti ofrecen una amplísima gama de hoteles, hostales y apartamentos turísticos.",
+                dato: "El edificio contaba con un sofisticado sistema de toldos gigantescos (el velarium) operado por marineros de la armada para proteger a los espectadores del sol y la lluvia."
+            },
+            {
+                titulo: "3. Cristo Redentor (Río de Janeiro, Brasil)",
+                imagenes: [
+                    "img/cristo/cristo.jpg",
+                    "img/cristo/cristo2.jfif",
+                    "img/cristo/cristo3.jfif",
+                    "img/cristo/cristo4.jfif"
+                ],
+                historia: "Construida entre 1922 y 1931 e inaugurada el 12 de octubre de 1931, esta obra monumental fue diseñada por el ingeniero brasileño Heitor da Silva Costa y esculpida por el artista francés Paul Landowski. Se encuentra en la cima del cerro del Corcovado, dominando con los brazos abiertos el paisaje urbano y natural de Río de Janeiro.",
+                ubicacion: "Parque Nacional de la Tijuca - Corcovado, Río de Janeiro - RJ, Brasil.",
+                maps: "https://maps.google.com/?q=Christ+the+Redeemer+Rio+de+Janeiro",
+                visitantes: "Recibe un promedio de 2 millones de visitantes anuales que suben a través del histórico tren del Corcovado o mediante furgonetas autorizadas.",
+                comer: "Disfruta de la gastronomía brasileña en los barrios de Santa Teresa o Copacabana, donde podrás probar una auténtica feijoada, picanha a la parrilla y refrescarte con una caipiriña.",
+                hospedaje: "Las mejores zonas para hospedarse son los barrios turísticos de Copacabana, Ipanema y Leblon, o bien hoteles con encanto en el bohemio barrio de Santa Teresa.",
+                dato: "Debido a su gran altura y ubicación expuesta, la estatua es alcanzada por potentes rayos varias veces durante las tormentas eléctricas anuales, requiriendo un constante mantenimiento preventivo en su estructura de esteatita."
+            },
+            {
+                titulo: "4. Gran Muralla China (China)",
+                imagenes: [
+                    "img/muralla/muralla.avif",
+                    "img/muralla/muralla2.jfif",
+                    "img/muralla/muralla3.jfif",
+                    "img/muralla/muralla4.avif"
+                ],
+                historia: "La construcción de la Gran Muralla comenzó en el siglo V a.C. y se prolongó durante más de dos mil años a lo largo de varias dinastías imperiales (como la Qin y la Ming). Su propósito principal era unificar el imperio y defender la frontera norte contra las incursiones de pueblos nómadas y tribus invasoras.",
+                ubicacion: "Frontera norte de China. Los tramos más visitados (como Badaling y Mutianyu) se encuentran a las afueras de Pekín.",
+                maps: "https://maps.google.com/?q=Great+Wall+of+China+Beijing",
+                visitantes: "Atrae a más de 10 millones de visitantes al año en sus secciones abiertas al público.",
+                comer: "En las zonas cercanas a los tramos turísticos y en Pekín podrás degustar el famoso pato laqueado pekinés, dumplings tradicionales y una gran variedad de fideos artesanales chinos.",
+                hospedaje: "Puedes hospedarte en el centro de Pekín para tener fácil acceso en transporte o excursiones guiadas, o elegir hoteles rústicos y casas de huéspedes tradicionales (hostels ecológicos) cerca de la muralla en Mutianyu.",
+                dato: "A pesar de la creencia popular extendida en todo el mundo, la Gran Muralla es sumamente difícil o imposible de distinguir a simple vista desde la órbita baja terrestre sin ayuda óptica debido a los materiales naturales con los que está integrada en el terreno."
+            },
+            {
+                titulo: "5. Machu Picchu (Perú)",
+                imagenes: [
+                    "img/machu/machu.jpg",
+                    "img/machu/machu2.jfif",
+                    "img/machu/machu3.jfif",
+                    "img/machu/machu4.jfif"
+                ],
+                historia: "Construida a mediados del siglo XV bajo las órdenes del emperador inca Pachacútec, esta ciudadela en piedra se alza imponente en las laderas de los Andes orientales. Funcionó como un centro político, religioso y administrativo, además de ser el refugio real de la élite incaica hasta que fue abandonada durante la conquista española.",
+                ubicacion: "Región Cuzco, Provincia de Urubamba, Perú (sobre el Valle Sagrado y el río Urubamba).",
+                maps: "https://maps.google.com/?q=Machu+Picchu+Peru",
+                visitantes: "Recibe alrededor de 1.5 millones de turistas al año, con cupos diarios estrictamente regulados para conservar el patrimonio arqueológico.",
+                comer: "En Aguas Calientes (pueblo al pie de la montaña) y en la ciudad de Cuzco podrás probar deliciosos platos peruanos como el lomo saltado, el ceviche clásico y especialidades andinas a base de papa y maíz.",
+                hospedaje: "Hay opciones que van desde hostales y hoteles económicos en Aguas Calientes hasta hoteles de lujo internacional en el Valle Sagrado de los Incas y el centro histórico de Cuzco.",
+                dato: "La ciudadela se mantuvo oculta de la gran mayoría del mundo occidental durante siglos hasta que el explorador estadounidense Hiram Bingham la dio a conocer internacionalmente en el año 1911 con ayuda de los pobladores locales."
+            },
+            {
+                titulo: "6. Petra (Jordania)",
+                imagenes: [
+                    "img/petra/petra.jfif",
+                    "img/petra/petra2.jpg",
+                    "img/petra/petra3.jfif",
+                    "img/petra/petra4.jfif"
+                ],
+                historia: "Petra fue la capital del próspero reino nabateo desde el siglo VI a.C. Ubicada en un enclave estratégico de rutas comerciales de caravanas de especias, esta ciudad destaca por haber sido esculpida directamente sobre los imponentes acantilados de roca arenisca de color rojizo.",
+                ubicacion: "Ma'an Governorate, Jordania (cerca del valle de Aravá).",
+                maps: "https://maps.google.com/?q=Petra+Jordan",
+                visitantes: "Recibe cerca de 1 millón de visitantes anuales procedentes de todo el mundo.",
+                comer: "En el pueblo cercano de Wadi Musa y en los restaurantes del centro de visitantes podrás degustar platillos típicos jordanos como el Mansaf (plato nacional a base de cordero y yogur seco fermentado) y el hummus tradicional.",
+                hospedaje: "La localidad de Wadi Musa cuenta con una amplia infraestructura hotelera, desde campamentos tradicionales en el desierto cercano hasta hoteles de categoría internacional con vistas panorámicas.",
+                dato: "Para acceder a la imponente fachada del Tesoro (Al-Khazneh) es necesario recorrer a pie un angosto y fascinante desfiladero natural de más de un kilómetro de longitud llamado el Siq."
+            },
+            {
+                titulo: "7. Taj Mahal (Agra, India)",
+                imagenes: [
+                    "img/india/india.jpg",
+                    "img/india/india2.jpg",
+                    "img/india/india3.jpg",
+                    "img/india/india4.jpg"
+                ],
+                historia: "Este extraordinario mausoleo de mármol blanco fue construido entre 1631 y 1648 por orden del emperador mogol Shah Jahan como una muestra de amor eterno en honor a su esposa favorita, Mumtaz Mahal, quien falleció al dar a luz a su decimocuarto hijo.",
+                ubicacion: "Dharmapuri, Forest Colony, Tajganj, Agra, Uttar Pradesh 282001, India.",
+                maps: "https://maps.google.com/?q=Taj+Mahal+Agra+India",
+                visitantes: "Es visitado por entre 7 y 8 millones de personas al año, siendo el imán turístico más grande de la India.",
+                comer: "En Agra podrás saborear exquisita comida mogol y del norte de la India, destacando el cordero rogan josh, los curris especiados, los panes naan recién horneados y el dulce típico local conocido como Petha.",
+                hospedaje: "Existen hoteles de lujo con vistas directas al monumento, así como hostales y alojamientos económicos distribuidos en las zonas comerciales cercanas al complejo de Tajganj.",
+                dato: "Gracias a las propiedades físicas de su mármol blanco puro y las piedras semipreciosas incrustadas, el monumento cambia sutilmente de tonalidad según la hora del día, luciendo rosado al amanecer, blanco brillante al mediodía y plateado bajo la luz de la luna."
+            }
+        ];
+
+        let indiceMaravillaActual = 0;
+        let indiceImagenActual = 0;
+
+        function cambiarMaravilla(index) {
+            indiceMaravillaActual = index;
+            indiceImagenActual = 0; 
+            actualizarVista();
+        }
+
+        function cambiarImagenGaleria(direccion) {
+            const m = maravillas[indiceMaravillaActual];
+            indiceImagenActual += direccion;
+
+            if (indiceImagenActual >= m.imagenes.length) {
+                indiceImagenActual = 0;
+            } else if (indiceImagenActual < 0) {
+                indiceImagenActual = m.imagenes.length - 1;
+            }
+
+            actualizarVista();
+        }
+
+        function actualizarVista() {
+            const m = maravillas[indiceMaravillaActual];
+            const imgActual = m.imagenes[indiceImagenActual];
+
+            // Rellenar información en la interfaz
+            document.getElementById('titulo-maravilla').innerText = m.titulo;
+            document.getElementById('img-maravilla').src = imgActual;
+            document.getElementById('contador-img').innerText = `${indiceImagenActual + 1} / ${m.imagenes.length}`;
+            
+            document.getElementById('txt-historia').innerText = m.historia;
+            document.getElementById('txt-ubicacion').innerText = m.ubicacion;
+            document.getElementById('link-maps').href = m.maps;
+            document.getElementById('txt-visitantes').innerText = m.visitantes;
+            document.getElementById('txt-comer').innerText = m.comer;
+            document.getElementById('txt-hospedaje').innerText = m.hospedaje;
+            document.getElementById('txt-dato').innerText = m.dato;
+
+            // Cambiar fondo dinámico
+            const seccionMaravillas = document.getElementById('maravillas-seccion');
+            seccionMaravillas.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('${imgActual}')`;
+
+            // Actualizar botones laterales
+            const botones = document.querySelectorAll('.menu-lateral button');
+            botones.forEach((btn, i) => {
+                if(i === indiceMaravillaActual) btn.classList.add('activo');
+                else btn.classList.remove('activo');
+            });
+        }
+
+        function mostrarPestaña(tipo) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('activa'));
+            document.querySelectorAll('.pestanas button').forEach(btn => btn.classList.remove('activa'));
+
+            document.getElementById('tab-' + tipo).classList.add('activa');
+            event.target.classList.add('activa');
+        }
+
+        window.onload = function() {
+            cambiarMaravilla(0);
+        };
+    </script>
+</body>
+</html>
