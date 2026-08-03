@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>  SUMAS </h2>
+    <form>
+        <table> <!-- para crear una tabla-->
+            <tr> <!-- para crear filas-->
+                <td> numero 1: </td> <!-- para crear columnas-->
+                <td>
+                    <input id="txtNum1" type="text"/> <!-- el input es para agregar texto en un txt-->
+                </td>
+            </tr>
+             <tr>
+                <td> numero 2: </td>
+                <td>
+                    <input id="txtNum2" type="text"/> <!-- el input es para agregar texto en un txt-->
+                </td>
+             </tr>
+             <tr> <!-- para crear filas-->
+                <td> </td> 
+                <td>
+                    <button  id="boton_suma"> Sumar </button>
+                </td>
+            </tr>
+        </table>
+
+    </form>    <!-- esta etqueta es la encapsular informacion, es una etiqueta no visual
+                       eso quiere decir quen no se visualiza en la pagina web-->
+</body>
+</html>
+<script>
+
+    
+    document.getElementById('boton_suma').addEventListener('click' ,function(){
+
+        var num1 = document.getElementById("txtNum1").value; 
+        /*
+        el value es para recuperar el valor 
+            de ese texto
+            */
+        var num2 = document.getElementById("txtNum2").value;
+        var result =parseInt(num1) + parseInt(num2);
+        alert(" el resultado es: " + result);
+    }
+);
+
+</script>
