@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MotoService Pro - Administración</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">🏍️ MotoService Pro</div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="admin.html" class="active">Gestión de Motos</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Control y Recepción de Motocicletas (CRUD)</h2>
+
+        <!-- Panel de Estadísticas / Indicadores (Mínimo 3) -->
+        <section class="stats-container">
+            <div class="stat-card">
+                <h3>Total Motos Registradas</h3>
+                <p id="stat-total">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Cilindrada Promedio</h3>
+                <p id="stat-avg-cc">0 cc</p>
+            </div>
+            <div class="stat-card">
+                <h3>En Mantenimiento</h3>
+                <p id="stat-mantenimiento">0</p>
+            </div>
+        </section>
+
+        <!-- Barra de Controles (Búsqueda, Orden, Funciones Adicionales) -->
+        <div class="controls-bar">
+            <input type="text" id="input-buscar" placeholder="🔍 Buscar por placa, marca o dueño...">
+            <select id="select-orden">
+                <option value="placa">Ordenar por Placa (A-Z)</option>
+                <option value="cilindrada">Ordenar por Cilindrada</option>
+            </select>
+            <button id="btn-exportar" class="btn-secondary">📥 Exportar CSV</button>
+            <button id="btn-dark-mode" class="btn-secondary">🌙 Modo Oscuro</button>
+        </div>
+
+        <!-- Formulario de Registro / Edición -->
+        <form id="form-moto">
+            <input type="hidden" id="moto-index">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="placa">Placa o Registro:</label>
+                    <input type="text" id="placa" required placeholder="Ej: AB123C">
+                </div>
+                <div class="form-group">
+                    <label for="marca">Marca y Modelo:</label>
+                    <input type="text" id="marca" required placeholder="Ej: Honda XR 250">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="cilindrada">Cilindrada (cc):</label>
+                    <input type="number" id="cilindrada" required min="50" max="3000" placeholder="Ej: 250">
+                </div>
+                <div class="form-group">
+                    <label for="propietario">Propietario:</label>
+                    <input type="text" id="propietario" required placeholder="Nombre del cliente">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="estado">Estado del Servicio:</label>
+                <select id="estado">
+                    <option value="Revisión">Revisión</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
+                    <option value="Reparado">Reparado</option>
+                </select>
+            </div>
+            <button type="submit" class="btn" id="btn-guardar">Registrar Motocicleta</button>
+        </form>
+
+        <!-- Tabla de Datos -->
+        <div class="table-responsive">
+            <table id="tabla-motos">
+                <thead>
+                    <tr>
+                        <th>Placa</th>
+                        <th>Marca / Modelo</th>
+                        <th>Cilindrada</th>
+                        <th>Propietario</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Inyección dinámica mediante JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MotoService Pro.</p>
+    </footer>
+
+    
+</body>
+<script src="js/script.js"></script>
+</html>
